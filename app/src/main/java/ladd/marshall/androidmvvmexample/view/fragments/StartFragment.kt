@@ -1,4 +1,4 @@
-package ladd.marshall.androidmvvmexample.fragments
+package ladd.marshall.androidmvvmexample.view.fragments
 
 import android.os.Bundle
 import android.view.View

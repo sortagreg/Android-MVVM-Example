@@ -1,4 +1,4 @@
-package ladd.marshall.androidmvvmexample.models
+package ladd.marshall.androidmvvmexample.model.models
 
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose

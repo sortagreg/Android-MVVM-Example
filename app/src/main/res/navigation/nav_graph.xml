@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="ladd.marshall.androidmvvmexample.fragments.StartFragment"
+        android:name="ladd.marshall.androidmvvmexample.view.fragments.StartFragment"
         android:label="MVVM Example"
         tools:layout="@layout/start_fragment">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="ladd.marshall.androidmvvmexample.fragments.SearchFragment"
+        android:name="ladd.marshall.androidmvvmexample.view.fragments.SearchFragment"
         android:label="Search"
         tools:layout="@layout/search_fragment">
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="ladd.marshall.androidmvvmexample.fragments.ListFragment"
+        android:name="ladd.marshall.androidmvvmexample.view.fragments.ListFragment"
         android:label="Employee List"
         tools:layout="@layout/list_fragment">
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="ladd.marshall.androidmvvmexample.fragments.DetailFragment"
+        android:name="ladd.marshall.androidmvvmexample.view.fragments.DetailFragment"
         android:label="{EMPLOYEE_NAME}"
         tools:layout="@layout/detail_fragment" />
 </navigation>

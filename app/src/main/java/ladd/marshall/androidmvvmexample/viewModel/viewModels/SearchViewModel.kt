@@ -1,4 +1,4 @@
-package ladd.marshall.androidmvvmexample.fragments
+package ladd.marshall.androidmvvmexample.viewModel.viewModels
 
 import androidx.lifecycle.ViewModel
 
