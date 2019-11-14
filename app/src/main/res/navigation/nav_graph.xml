@@ -23,8 +23,8 @@
         android:label="search_fragment"
         tools:layout="@layout/search_fragment" >
         <action
-            android:id="@+id/action_searchFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            android:id="@+id/action_searchFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
