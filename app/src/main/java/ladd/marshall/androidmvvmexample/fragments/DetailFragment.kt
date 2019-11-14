@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.detail_fragment.*
 import ladd.marshall.androidmvvmexample.R
 import ladd.marshall.androidmvvmexample.utils.EMPLOYEE_ID

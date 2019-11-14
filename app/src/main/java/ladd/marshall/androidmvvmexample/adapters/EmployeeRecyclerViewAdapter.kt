@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import ladd.marshall.androidmvvmexample.R
 import ladd.marshall.androidmvvmexample.models.Employee
 
-
 class EmployeeRecyclerViewAdapter(private val onClickListener: (Employee) -> Unit) :
     ListAdapter<Employee, EmployeeViewHolder>(EmployeeDiffCallback()) {
 
@@ -23,7 +22,6 @@ class EmployeeRecyclerViewAdapter(private val onClickListener: (Employee) -> Uni
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
         holder.item = getItem(position)
     }
-
 }
 
 class EmployeeViewHolder(private val view: View, private val onClickListener: (Employee) -> Unit) :
@@ -38,7 +36,6 @@ class EmployeeViewHolder(private val view: View, private val onClickListener: (E
                 view.findViewById<TextView>(R.id.textViewId).text = "${newValue.id}"
             }
         }
-
 }
 
 class EmployeeDiffCallback : DiffUtil.ItemCallback<Employee>() {
@@ -50,5 +47,4 @@ class EmployeeDiffCallback : DiffUtil.ItemCallback<Employee>() {
     override fun areContentsTheSame(oldItem: Employee, newItem: Employee): Boolean {
         return oldItem == newItem
     }
-
 }
