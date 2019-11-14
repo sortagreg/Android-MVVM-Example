@@ -3,26 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="4dp">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewName"
         style="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Employee Name" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewId"
         style="@style/TextAppearance.MaterialComponents.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Employee Detail" />
 
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Another Detail" />
 </LinearLayout>

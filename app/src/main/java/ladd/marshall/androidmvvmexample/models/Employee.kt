@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 /**
- * 05 Create your data class.
+ * 06 Create your data class.
  *
  * Ensure your data class matches the data(JSON, XML, HTML)
  * you receive, if you are connecting to an endpoint.
@@ -16,13 +16,13 @@ import com.google.gson.annotations.SerializedName
  *
  * @author Marshall Ladd
  */
-// 05 This creates our class, and defines our constructor, all in one line
+// 06 This creates our class, and defines our constructor, all in one line
 data class Employee(
     @Expose
     @PrimaryKey
     val id: Int,
     /**
-     * 05 @SerializedName is used to tell the GSON library that
+     * 06 @SerializedName is used to tell the GSON library that
      * the variable name from the JSON, does not match what you have
      * named Kotlin variable.  In this case, the JSON field
      * employee_name is mapped to the Kotlin variable employeeName.
