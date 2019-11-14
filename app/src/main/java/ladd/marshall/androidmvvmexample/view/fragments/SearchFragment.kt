@@ -1,4 +1,4 @@
-package ladd.marshall.androidmvvmexample.fragments
+package ladd.marshall.androidmvvmexample.view.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -11,6 +11,7 @@ import ladd.marshall.androidmvvmexample.R
 import ladd.marshall.androidmvvmexample.utils.EMPLOYEE_ID
 import ladd.marshall.androidmvvmexample.utils.EMPLOYEE_NAME
 import ladd.marshall.androidmvvmexample.utils.toInt
+import ladd.marshall.androidmvvmexample.viewModel.viewModels.SearchViewModel
 
 class SearchFragment : Fragment(R.layout.search_fragment) {
 

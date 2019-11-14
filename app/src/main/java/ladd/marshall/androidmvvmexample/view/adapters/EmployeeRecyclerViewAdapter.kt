@@ -1,4 +1,4 @@
-package ladd.marshall.androidmvvmexample.adapters
+package ladd.marshall.androidmvvmexample.view.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ladd.marshall.androidmvvmexample.R
-import ladd.marshall.androidmvvmexample.models.Employee
+import ladd.marshall.androidmvvmexample.model.models.Employee
 
 class EmployeeRecyclerViewAdapter(private val onClickListener: (Employee) -> Unit) :
     ListAdapter<Employee, EmployeeViewHolder>(EmployeeDiffCallback()) {
