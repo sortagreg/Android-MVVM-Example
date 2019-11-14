@@ -14,8 +14,7 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val args = arguments
-        args?.let {
+        arguments?.let {
             textViewId.text = "${it.getInt(EMPLOYEE_ID)}"
         }
     }
