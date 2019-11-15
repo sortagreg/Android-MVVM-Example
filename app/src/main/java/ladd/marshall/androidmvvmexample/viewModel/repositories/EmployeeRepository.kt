@@ -8,6 +8,7 @@ import ladd.marshall.androidmvvmexample.model.database.ExampleRoomDB
 import ladd.marshall.androidmvvmexample.model.database.daos.EmployeeDAO
 import ladd.marshall.androidmvvmexample.model.models.Employee
 import timber.log.Timber
+import kotlin.coroutines.coroutineContext
 
 class EmployeeRepository private constructor(application: Application) {
 
@@ -23,15 +24,27 @@ class EmployeeRepository private constructor(application: Application) {
     }
 
     suspend fun getAllEmployeesLiveData(): LiveData<List<Employee>> {
-        try {
-            val employeeList = employeeCalls.getEmployeeList()
-            employeeList.forEach {
-                insertEmployee(it)
+        return employeeDAO.getAllEmployeesLiveData().also {
+            try {
+                val employeeList = employeeCalls.getEmployeeList()
+                employeeList.forEach {
+                    insertEmployee(it)
+                }
+            } catch (exception: Throwable) {
+                Timber.e(exception)
             }
-        } catch (exception: Throwable) {
-            Timber.e(exception)
         }
-        return employeeDAO.getAllEmployeesLiveData()
+    }
+
+    suspend fun getEmployeeByIdLiveData(employeeId: Int): LiveData<Employee?> {
+        return employeeDAO.getEmployeeByIdLiveData(employeeId).also {
+            try {
+                val employee = employeeCalls.getEmployeeById(employeeId)
+                insertEmployee(employee)
+            } catch (exception: Throwable) {
+                Timber.e(exception)
+            }
+        }
     }
 
     companion object {

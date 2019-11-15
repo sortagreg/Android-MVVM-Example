@@ -1,25 +1,18 @@
 package ladd.marshall.androidmvvmexample.viewModel.viewModels
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import kotlinx.coroutines.Dispatchers
-import ladd.marshall.androidmvvmexample.api.EmployeeEndpoints
-import ladd.marshall.androidmvvmexample.api.RetroFitInstance
 import ladd.marshall.androidmvvmexample.model.models.Employee
-import timber.log.Timber
+import ladd.marshall.androidmvvmexample.viewModel.repositories.EmployeeRepository
 
-class DetailViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class DetailViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val employeeCalls = RetroFitInstance.getInstance().create(EmployeeEndpoints::class.java)
+    private val employeeRepository = EmployeeRepository.getInstance(application)
 
-    fun employeeLiveData(id: Int): LiveData<Employee> = liveData(Dispatchers.IO) {
-        try {
-            val employee = employeeCalls.getEmployeeById(id)
-            emit(employee)
-        } catch (exception: Throwable) {
-            Timber.e(exception)
-        }
+    fun employeeLiveData(id: Int): LiveData<Employee?> = liveData(Dispatchers.IO) {
+        emitSource(employeeRepository.getEmployeeByIdLiveData(id))
     }
 }

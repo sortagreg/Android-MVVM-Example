@@ -15,4 +15,7 @@ interface EmployeeDAO {
 
     @Query("SELECT * FROM employee_table")
     fun getAllEmployeesLiveData(): LiveData<List<Employee>>
+
+    @Query("SELECT * FROM employee_table WHERE id = :employeeId")
+    fun getEmployeeByIdLiveData(employeeId: Int): LiveData<Employee?>
 }

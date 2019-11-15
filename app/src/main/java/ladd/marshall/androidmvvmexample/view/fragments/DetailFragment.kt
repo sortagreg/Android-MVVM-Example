@@ -17,9 +17,12 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let { bundle ->
-            viewModel.employeeLiveData(bundle.getInt(EMPLOYEE_ID)).observe(this) { employee ->
-                textViewName.text = employee.employeeName
-                textViewId.text = employee.id.toString()
+            viewModel.employeeLiveData(bundle.getInt(EMPLOYEE_ID)).observe(this) { employeeOrNull ->
+                employeeOrNull?.let { employee ->
+                    textViewName.text = employee.employeeName
+                    textViewId.text = employee.id.toString()
+                }
+
             }
         }
     }
