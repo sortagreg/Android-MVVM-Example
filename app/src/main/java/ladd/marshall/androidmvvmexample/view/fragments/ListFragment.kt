@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.list_fragment.*
 import ladd.marshall.androidmvvmexample.R
-import ladd.marshall.androidmvvmexample.view.adapters.EmployeeRecyclerViewAdapter
 import ladd.marshall.androidmvvmexample.model.models.Employee
 import ladd.marshall.androidmvvmexample.utils.EMPLOYEE_ID
 import ladd.marshall.androidmvvmexample.utils.EMPLOYEE_NAME
+import ladd.marshall.androidmvvmexample.view.adapters.EmployeeRecyclerViewAdapter
 import ladd.marshall.androidmvvmexample.viewModel.viewModels.ListViewModel
 
 class ListFragment : Fragment(R.layout.list_fragment) {

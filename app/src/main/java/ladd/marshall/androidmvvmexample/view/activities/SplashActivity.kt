@@ -1,4 +1,4 @@
-package ladd.marshall.androidmvvmexample
+package ladd.marshall.androidmvvmexample.view.activities
 
 import android.content.Intent
 import android.os.Bundle
