@@ -24,7 +24,7 @@ All Android apps in the App Factory will be written in Kotlin.
 
 ### Prerequisites
 This project assumes a base knowledge of Kotlin and Android, such as
-Activities, Fragments, and Lifecycle.
+Activities, Fragments, and the Manifest.
 
 ## What is MVVM?
 MVVM is a flexible guide and set of libraries used to standardize an
@@ -89,7 +89,8 @@ interact in a certain way. This interaction follows the pattern:
 LiveData was mentioned a few times, so what is it? LiveData is a wrapper
 class for data objects. It is observable from a View. Being observable
 is a way to automatically call update UI logic, anytime the data is
-changed.
+changed. There's more to it than all that, but those are the very
+basics. If they don't make sense now, they will after you use them.
    
 ### Basic Example
 Inside of a Fragment such as ListFragment, get an instance of the
@@ -99,8 +100,9 @@ ViewModel needed
 private val viewModel by viewModels<ListViewModel>()
 ```
 
-The ViewModel will have a Function or Object that returns a LiveData
-object
+The ViewModel will have a Function or Object that triggers background
+database and network requests, and immediately returns a LiveData Object
+to be observed.
 
 ```kotlin
 fun getAllEmployees(): LiveData<List<Employee>> {
@@ -110,7 +112,9 @@ fun getAllEmployees(): LiveData<List<Employee>> {
 ```
 
 Then, back in the Fragment, you can call to this method, and observe the
-returned LiveData and update your UI with the contained data
+returned LiveData and update your UI with the contained data. When the
+background database or network requests finish, they post their updates
+to this Object, triggering a UI update.
 
 ```kotlin
 viewModel.getAllEmployees().observe(this, Observer { employeeList ->
@@ -119,6 +123,14 @@ viewModel.getAllEmployees().observe(this, Observer { employeeList ->
     }
 })
 ```
+
+## Navigation
+
+## Styles & Themes
+
+## Splash Screens
+
+
 
 ### Disclaimer
 This app is meant to show architecture examples. It is **NOT** meant to
