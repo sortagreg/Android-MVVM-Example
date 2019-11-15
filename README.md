@@ -109,7 +109,16 @@ fun getAllEmployees(): LiveData<List<Employee>> {
 }
 ```
 
+Then, back in the Fragment, you can call to this method, and observe the
+returned LiveData and update your UI with the contained data
 
+```kotlin
+viewModel.getAllEmployees().observe(this, Observer { employeeList ->
+    employeeList?.let {
+        recyclerViewAdapter.submitList(it)
+    }
+})
+```
 
 ### Disclaimer
 This app is meant to show architecture examples. It is **NOT** meant to
