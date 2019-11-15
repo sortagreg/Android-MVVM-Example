@@ -21,8 +21,10 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
                 employeeOrNull?.let { employee ->
                     textViewName.text = employee.employeeName
                     textViewId.text = employee.id.toString()
+                    textViewAge.text = employee.employeeAge.toString()
+                    textViewImageLink.text = employee.profileImage
+                    textViewSalary.text = employee.employeeSalary.toString()
                 }
-
             }
         }
     }

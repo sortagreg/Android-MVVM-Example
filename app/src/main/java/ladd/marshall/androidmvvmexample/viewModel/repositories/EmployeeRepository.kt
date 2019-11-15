@@ -8,7 +8,6 @@ import ladd.marshall.androidmvvmexample.model.database.ExampleRoomDB
 import ladd.marshall.androidmvvmexample.model.database.daos.EmployeeDAO
 import ladd.marshall.androidmvvmexample.model.models.Employee
 import timber.log.Timber
-import kotlin.coroutines.coroutineContext
 
 class EmployeeRepository private constructor(application: Application) {
 
