@@ -8,11 +8,11 @@ import ladd.marshall.androidmvvmexample.model.models.Employee
 interface EmployeeDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertEmployee(vararg employee: Employee)
+    fun insertEmployee(employee: Employee)
 
     @Delete
-    fun deleteEmployee(vararg employee: Employee)
+    fun deleteEmployee(employee: Employee)
 
     @Query("SELECT * FROM employee_table")
-    fun getAllEployeesLiveData(): LiveData<List<Employee>>
+    fun getAllEmployeesLiveData(): LiveData<List<Employee>>
 }
