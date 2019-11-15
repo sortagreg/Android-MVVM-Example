@@ -3,8 +3,8 @@
 
 ## Introduction
 This project is to provide a simple example app for Android Developers
-at The App Factory who are starting a new app, or adding new features to
-reference.
+at The App Factory to reference when starting a new app, or adding new
+features to an existing app.
 
 The architecture pattern shown here and to be used in apps, whenever
 possible, is Model-View-ViewModel, or MVVM. This is the pattern
@@ -25,21 +25,6 @@ All Android apps in the App Factory will be written in Kotlin.
 ### Prerequisites
 This project assumes a base knowledge of Kotlin and Android, such as
 Activities, Fragments, and Lifecycle.
-
-### Disclaimer
-This app is meant to show architecture examples. It is **NOT** meant to
-look good, or to show how to design a UI. There are some good practices
-shown, such as using Material Theme and how to implement a proper splash
-screen, but overall, **DO NOT MAKE YOUR APP LOOK LIKE THIS**.
-
-This is a very basic example and is **NOT** meant to show how to do
-everything, just a general structure to follow. For a more advanced
-example of MVVM implemented in a larger app, reference the Unico Reports
-Android App.
-
-This app is **NOT** to be treated as the absolute only way to do things.
-For instance, this app uses Room Database and Retrofit. If using
-something else, such as Firebase, this pattern can still be followed. 
 
 ## What is MVVM?
 MVVM is a flexible guide and set of libraries used to standardize an
@@ -124,3 +109,19 @@ fun getAllEmployees(): LiveData<List<Employee>> {
 }
 ```
 
+
+
+### Disclaimer
+This app is meant to show architecture examples. It is **NOT** meant to
+look good, or to show how to design a UI. There are some good practices
+shown, such as using Material Theme and how to implement a proper splash
+screen, but overall, **DO NOT MAKE YOUR APP LOOK LIKE THIS**.
+
+This is a very basic example and is **NOT** meant to show how to do
+everything, just a general structure to follow. For a more advanced
+example of MVVM implemented in a larger app, reference the Unico Reports
+Android App.
+
+This app is **NOT** to be treated as the absolute only way to do things.
+For instance, this app uses Room Database and Retrofit. If using
+something else, such as Firebase, this pattern can still be followed. 
