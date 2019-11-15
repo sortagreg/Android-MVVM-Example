@@ -5,13 +5,18 @@ import androidx.lifecycle.liveData
 import kotlinx.coroutines.Dispatchers
 import ladd.marshall.androidmvvmexample.api.EmployeeEndpoints
 import ladd.marshall.androidmvvmexample.api.RetroFitInstance
+import timber.log.Timber
 
 class ListViewModel : ViewModel() {
     // TODO: Implement the ViewModel
     private val employeeCalls = RetroFitInstance.getInstance().create(EmployeeEndpoints::class.java)
 
     val employeeListLiveData = liveData(Dispatchers.IO) {
-        val employeeList = employeeCalls.getEmployeeList()
-        emit(employeeList)
+        try {
+            val employeeList = employeeCalls.getEmployeeList()
+            emit(employeeList)
+        } catch (exception: Throwable) {
+            Timber.e(exception)
+        }
     }
 }

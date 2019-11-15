@@ -16,7 +16,7 @@ interface EmployeeEndpoints {
     // Then, use @Path(variableName) in the arguments to the function.
     // The value to be placed in the URL can then be passed in
     // dynamically at runtime.
-    @GET("api/v1/employees/{employeeId}")
+    @GET("api/v1/employee/{employeeId}")
     suspend fun getEmployeeById(@Path("employeeId") employeeId: Int): Employee
 
     // If your endpoint requires an API token, here is how the first call would look.
