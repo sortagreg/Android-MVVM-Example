@@ -41,13 +41,10 @@ This app is **NOT** to be treated as the absolute only way to do things.
 For instance, this app uses Room Database and Retrofit. If using
 something else, such as Firebase, this pattern can still be followed. 
 
-## How to use this guide
-
-## MVVM
-### What is it?
+## What is MVVM?
 MVVM is a flexible guide and set of libraries used to standardize an
 app's architecture. What this means is that your code is split into
-distinct parts that hold specific pieces of code in specific areas.
+distinct components that hold specific parts of code in specific areas.
 These parts then interact with each other in a set order. These parts
 are:
 
@@ -83,3 +80,47 @@ representing the state of the data to the View. This coordination
 creates what is known as a **single source of truth** and exposes it to
 the Views. This way, you can be as sure as you can be, that what is
 being shown to the user is accurate, and where it came from.
+
+ViewModels provided by the Jetpack components are also Lifecycle aware,
+and can survive configuration changes. This helps:
+- Prevent memory leaks
+- Prevent errant network calls
+- Prevent null pointer exceptions due to UI changes
+- Solves the issue of what happens when you rotate an app
+
+## How it works
+As mentioned before MVVM breaks the app into components and they
+interact in a certain way. This interaction follows the pattern:
+1. The View subscribes to a LiveData from a ViewModel
+2. The ViewModel connects to a repository
+3. The Repository connects to databases, both remote and local, if there
+   are both
+4. The Repository returns the requested data to the the ViewModel
+5. The ViewModel formats the data and exposes it through a LiveData
+6. The View's subscriptions are notified of any changes through the
+   LIveData, and updates the UI to match
+   
+### LiveData
+LiveData was mentioned a few times, so what is it? LiveData is a wrapper
+class for data objects. It is observable from a View. Being observable
+is a way to automatically call update UI logic, anytime the data is
+changed.
+   
+### Basic Example
+Inside of a Fragment such as ListFragment, get an instance of the
+ViewModel needed
+
+```kotlin
+private val viewModel by viewModels<ListViewModel>()
+```
+
+The ViewModel will have a Function or Object that returns a LiveData
+object
+
+```kotlin
+fun getAllEmployees(): LiveData<List<Employee>> {
+    // Database and or network logic happens
+    // return LiveData<List<Employee>>
+}
+```
+
