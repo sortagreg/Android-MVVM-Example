@@ -5,12 +5,12 @@ import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.list_fragment.*
 import ladd.marshall.androidmvvmexample.R
-import ladd.marshall.androidmvvmexample.model.models.Employee
 import ladd.marshall.androidmvvmexample.utils.EMPLOYEE_ID
 import ladd.marshall.androidmvvmexample.utils.EMPLOYEE_NAME
 import ladd.marshall.androidmvvmexample.view.adapters.EmployeeRecyclerViewAdapter
@@ -36,13 +36,8 @@ class ListFragment : Fragment(R.layout.list_fragment) {
             )
         }
 
-        (recyclerView.adapter as EmployeeRecyclerViewAdapter).submitList(
-            listOf(
-                Employee(1, "Test name 1", 123456, 32, "http://testimage.jpg"),
-                Employee(2, "Test name 2", 123456, 32, "http://testimage.jpg"),
-                Employee(3, "Test name 3", 123456, 32, "http://testimage.jpg"),
-                Employee(4, "Test name 4", 123456, 32, "http://testimage.jpg")
-            )
-        )
+        viewModel.employeeListLiveData.observe(this) { employeeList ->
+            (recyclerView.adapter as EmployeeRecyclerViewAdapter).submitList(employeeList)
+        }
     }
 }

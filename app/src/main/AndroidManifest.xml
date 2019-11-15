@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ladd.marshall.androidmvvmexample">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".view.activities.MainActivity" />
         <activity android:name=".view.activities.SplashActivity"
