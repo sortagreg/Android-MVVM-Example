@@ -1,5 +1,6 @@
 package ladd.marshall.androidmvvmexample.model.models
 
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -17,6 +18,7 @@ import com.google.gson.annotations.SerializedName
  * @author Marshall Ladd
  */
 // 06 This creates our class, and defines our constructor, all in one line
+@Entity(tableName = "employee_table")
 data class Employee(
     @Expose
     @PrimaryKey
