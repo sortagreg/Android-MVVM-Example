@@ -1,6 +1,17 @@
 # Android App Architecture in The App Factory
 ### The MVVM Design Pattern
 
+#### Contents
+- [Introduction](#introduction)
+- [How to Use This Guide](#how-to-use-this-guide)
+- [What is MVVM?](#what-is-mvvm)
+- [How it Works](#how-it-works)
+- [Room Database](#room-database)
+- [Repositories](#repositories)
+- [Navigation](#navigation)
+- [Splash Screens](#splash-screens)
+- [Disclaimer](#disclaimer)
+
 ## Introduction
 This project is to provide a simple example app for Android Developers
 at The App Factory to reference when starting a new app, or adding new
@@ -27,6 +38,16 @@ All Android apps in the App Factory will be written in Kotlin.
 This project assumes a base knowledge of Kotlin and Android, such as
 Activities, Fragments, and the Manifest.
 
+## How to Use This Guide
+This README has a general summary of the design principles used in this
+app, using code snippets to show simplified examples to accompany the
+explanations. You should reference the code in the app for the complete
+implementation of classes.
+
+Further down the guide, there is a step-by-step summary of how I built
+this app. I will explain what I implemented, in the order I implement
+them.
+
 ## What is MVVM?
 MVVM is a flexible guide and set of libraries used to standardize an
 app's architecture. What this means is that your code is split into
@@ -35,9 +56,10 @@ These parts then interact with each other in a set order. These parts
 are:
 
 #### Model
-The Model consists of two parts
+The Model consists of three parts
 
-- Database Classes
+- Database Class
+- DAO Interfaces
 - Data Model Classes
 
 In this app, our local database is Room. In other apps, Firebase may be
@@ -134,13 +156,18 @@ it operates like Retrofit, but for database calls. It relies heavily on
 annotations to generate code for you. Room also natively supports
 LiveData.
 
+Documentation can be found [here](https://developer.android.com/training/data-storage/room).
+
+A tutorial on Room, provided by Google, can be found
+[here](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0).
+
+### Basic Room Example
 Room consist of three main parts
 - The Database Class
 - Data Access Object Interfaces
 - Annotated Data Classes
 
-### Basic Room Example
-Create a Data class to store in Room and add the **@Entity** and
+First, create a Data class to store in Room and add the **@Entity** and
 **@PrimaryKey** annotations where needed.
 
 ```kotlin
@@ -301,6 +328,11 @@ LiveData, the UI won't care where it came from, just as that it gets
 there.
 
 ## Final Thoughts on MVVM
+That's it. This app is ready to be released or expanded on. You could
+add more endpoints, add new database operations, add new screens, add
+new data classes, add whole new features, whatever. Just follow the
+patterns seen here when doing so as best you can when doing so.
+
 This README is meant to be a general summary of the MVVM concept and
 give you an idea of how to implement it in your app. It is not a perfect
 example. For instance, MVVM recommends the use of DataBinding or
@@ -327,7 +359,7 @@ by BigNerdRanch. It is written in Java and from 2015, but still applies.
 The Java translates directly to Kotlin and the rest stays basically the
 same.
 
-### Disclaimer
+## Disclaimer
 This app is meant to show architecture examples. It is **NOT** meant to
 look good, or to show how to design a UI. There are some good practices
 shown, such as using Material Theme and how to implement a proper splash
