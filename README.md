@@ -430,7 +430,25 @@ correctly. If it doesn't, troubleshoot until it does, then move on.
 
 ##### RUN THE APP
 
+8. Retrofit, LiveData, and ViewModels
+   - Create Retrofit Interface
+   - Make function that returns LiveData<List<Employee>> in ViewModel
+   - Subscribe to that LiveData from the Fragment
+   - Back in the ViewModel make the network call using retrofit inside
+     of the function and emit its return value through the LiveData
+   - Update RecyclerViewAdapter to receive its list from the LiveData
+     Observer
+     
+##### RUN THE APP
 
+9. Room and Repositories
+   - Implement Room according to the examples and documentation here
+   - Refactor Room and ViewModel to use the repository pattern
+
+##### RUN THE APP
+Congrats, you now have a basic app that connects to a remote API,
+downloads and stores data, then displays that data. It also has offline
+backup and a very simple search function.
 
 ## Submit Changes
 
