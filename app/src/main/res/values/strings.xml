@@ -3,4 +3,5 @@
     <string name="search_for_employee">Search for Employee</string>
     <string name="view_all_employees">View All Employees</string>
     <string name="employee_id">Employee ID</string>
+    <string name="search">Search</string>
 </resources>

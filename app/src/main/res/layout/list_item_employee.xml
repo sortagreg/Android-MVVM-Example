@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/color_surface"
     android:orientation="vertical"
-    android:padding="4dp"
-    android:background="@color/color_surface">
+    android:padding="4dp">
 
     <TextView
         android:id="@+id/textViewName"
