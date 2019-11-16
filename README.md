@@ -3,16 +3,20 @@
 
 #### Contents
 - [Introduction](#introduction)
-- [How to Use This Guide](#how-to-use-this-guide)
-- [What is MVVM?](#what-is-mvvm)
-- [How it Works](#how-it-works)
-- [Room Database](#room-database)
-- [Repositories](#repositories)
-- [Navigation](#navigation)
-- [Splash Screens](#splash-screens)
-- [Disclaimer](#disclaimer)
-- [Step By Step](#step-by-step)
-- [Submit Changes](#submit-changes)
+  - [How to Use This Guide](#how-to-use-this-guide)
+- MVVM
+  - [What is MVVM?](#what-is-mvvm)
+  - [How it Works](#how-it-works)
+  - [Room Database](#room-database)
+  - [Repositories](#repositories)
+- Other Tools
+  - [Navigation](#navigation)
+  - [Splash Screens](#splash-screens)
+- Instructions
+  - [Step By Step](#step-by-step)
+  - [Submit Changes](#submit-changes)
+- Other
+  - [Disclaimer](#disclaimer)
 
 ## Introduction
 This project is to provide a simple example app for Android Developers
@@ -336,10 +340,10 @@ there.
 That's it. This app is ready to be released or expanded on. You could
 add more endpoints, add new database operations, add new screens, add
 new data classes, add whole new features, whatever. Just follow the
-patterns seen here when doing so as best you can when doing so.
+patterns seen here when doing so as best you can.
 
-This README is meant to be a general summary of the MVVM concept and
-give you an idea of how to implement it in your app. It is not a perfect
+This guide is meant to be a general summary of the MVVM concept and give
+you an idea of how to implement it in your app. It is not a perfect
 example. For instance, MVVM recommends the use of DataBinding or
 ViewBinding and I did not use any of it in this app. This app is meant
 to be a starting point. Any improvements and further refinement to the
