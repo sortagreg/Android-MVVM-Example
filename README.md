@@ -11,6 +11,8 @@
 - [Navigation](#navigation)
 - [Splash Screens](#splash-screens)
 - [Disclaimer](#disclaimer)
+- [Step By Step](#step-by-step)
+- [Submit Changes](#submit-changes)
 
 ## Introduction
 This project is to provide a simple example app for Android Developers
@@ -44,9 +46,12 @@ app, using code snippets to show simplified examples to accompany the
 explanations. You should reference the code in the app for the complete
 implementation of classes.
 
-Further down the guide, there is a step-by-step summary of how I built
-this app. I will explain what I implemented, in the order I implement
-them.
+Further down the guide, there is a [Step By Step](#step-by-step) summary
+of how I built this app. I will briefly explain what I implemented, in
+the order I implemented it.
+
+The Master branch will always have the latest full, approved, running,
+and commented code.
 
 ## What is MVVM?
 MVVM is a flexible guide and set of libraries used to standardize an
@@ -358,6 +363,76 @@ This method is from an
 by BigNerdRanch. It is written in Java and from 2015, but still applies.
 The Java translates directly to Kotlin and the rest stays basically the
 same.
+
+## Step By Step 
+While an attempt was made to do everything in order, document
+everything, and get it all correct, there may be errors or things
+missing from this guide. If you find something, please refer to
+[Submit Changes](#submit-changes) for info on how you can submit a fix
+for it.
+
+Each step in this guide has an associated branch in this repository.
+Checking out each branch will show you how the app would look after
+finishing the step, with additional comments in the code. 
+
+0. Create a new project in Android Studio.
+   - Min API level 21 is the **absolute** minimum we should select here
+   - API level 23 would be preferred
+   - Don't create a default activity
+1. Dependencies and Activities
+   - Add known dependencies and settings to gradle
+     - In this instance, it is best to use the gradle from the Master as
+       your example, and not the one in this steps branch
+   - Add Splash Activity to project
+     - Do not generate XML/UI for this
+     - Set this as the Launcher Activity
+   - Add Main Activity
+     - Do generate XML/UI for this
+     - Do not make this the Launcher Activity
+   - Implement [splash screen](#splash-screen)
+2. Fragments
+   - Add Start, List, Search, and Detail Fragment
+     - Start Fragment - select Fragment (blank) from menu
+     - All others - select Fragment (with ViewModel) from menu
+3. Navigation
+   - Implement basic [navigation](#navigation) for the app
+     - NavGraph
+     - Connect MainActivity
+   
+##### RUN THE APP
+The app should run at this point. It will load the MainActivity, which
+should be displaying the StartFragment. Unless you update the UI and
+connect buttons, you'll only be able to see StartFragment. This will
+happen in the next step.
+
+If this is not happening, troubleshoot until it is. **DO NOT** continue
+until this is working.
+
+4. UI
+   - Design the app UI in XML
+   - Add Buttons, RecyclerView, etc. to all screens
+5. Finish Navigation
+   - Navigate between Fragments using the Navigation Component
+   - Does not need to pass data between Fragments yet
+
+##### RUN THE APP
+Make sure the app behaves as expected and navigates between the screens
+correctly. If it doesn't, troubleshoot until it does, then move on.
+
+6. Data Classes
+   - Create the Employee Data Class
+   - Employee in this example has annotations in places
+   - Annotations are in preparation for Retrofit
+7. RecyclerViewAdapter
+   - Create the RecyclerViewAdapter for Employees
+   - Implement it in the list fragment
+   - Pass in a static test list of data to make sure it works
+
+##### RUN THE APP
+
+
+
+## Submit Changes
 
 ## Disclaimer
 This app is meant to show architecture examples. It is **NOT** meant to
