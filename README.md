@@ -21,7 +21,7 @@
   - [Material Components](#material-components)
 - [Instructions](#instructions)
   - [Step By Step](#step-by-step)
-  - [Submit Changes](#submit-changes)
+  - [How to Learn an App](#how-to-learn-an-app)
 - [Other](#other)
   - [Disclaimer](#disclaimer)
 
@@ -63,6 +63,13 @@ the order I implemented it.
 
 The Master branch will always have the latest full, approved, running,
 and commented code.
+
+After that, there is a section for developers, new and experienced, who
+are asked to jump on a project that's already going. This section will
+walk you through my steps on how I approach someone else's code. The
+steps I will go over are applicable to any and all Android apps, not
+just one's that use MVVM. I will be using this app as an example, and
+pretending we had no comments while I do so.
 
 # MVVM
 
@@ -606,7 +613,150 @@ Congrats, you now have a basic app that connects to a remote API,
 downloads and stores data, then displays that data. It also has offline
 backup and a very simple search function.
 
-## Submit Changes
+## How to Learn an App
+In this section, I will describe the approach I take when looking at any
+Android code for the first time. Following these steps will show you how
+any app is structured, how it navigates between each screen, and where
+any data is coming from and being stored. That's about 80-90% of what an
+app is. Even better, you'll be able to do this, even if there is no
+documentation or comments anywhere.
+
+First thing I like to look at when I approach an app is the app's gradle
+file. In here you can see what version of Android they are targeting.
+Further down the file, you'll see what dependencies are being used and
+if they are the current version or not. This can tell you a lot about an
+app. Like if you were told it connects to a remote API and you don't see
+anything about Retrofit or Firebase, you'll know to start worrying.
+   
+Next, I'll open the manifest.xml file. The manifest essentially
+describes the app to the operating system, so lets see what it's saying.
+   
+```xml
+   
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        package="ladd.marshall.androidmvvmexample">
+        
+<!--    Lots of other XML tags go here    -->
+        
+        </manifest>
+```
+This first section tells us what the package name of the app is. This
+name must be unique across every app in the entire Play Store. In this
+app, the package name is "ladd.marshall.androidmvvmexample". This is an
+incorrect package name for an App Factory app and should be fixed.
+
+```xml
+    <uses-permission android:name="android.permission.INTERNET"/>
+```
+This block tells the OS which permissions the app will be using, such as
+Internet, bluetooth, or location.
+
+```xml
+    <application
+        android:name=".BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        
+<!--    Lots of other XML tags go here    -->
+</application>
+```
+This tells us what the Application is, what it should be called,how it
+should look, and if we have any special configurations we want to make.
+
+The important line for us right now is the line that says name. If this
+is not in your app, move on to the next section. Your app is using
+default application settings, and this is ok and normal.
+
+So what does this line mean to us? It points to a file somewhere in the
+Project that is overriding the Application class. To quickly navigate to
+that file, click on the value ".BaseApplication" then hit command + B on
+a Mac, and you will be taken straight to that file. This shortcut will
+be used often.
+
+Our Application file is pretty boring. It is only setting up the Timber
+logging dependency. In other apps, say one that was using the RealmDB
+for its database, this is where you would init that. Let's move on.
+
+```xml
+        <activity android:name=".view.activities.MainActivity" />
+        <activity android:name=".view.activities.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+```
+Now we are getting somewhere. Here we see all the Activities that are in
+our app. Here we have a MainActivity and a SplashActivity declared.
+Remember, Activities are what host our app's UI and logic.
+
+The key thing to look for are the lines in-between the intent-filter
+flags. The tags MAIN and LAUNCHER we see here tell us that the
+SplashActivity is the first Activity that will load when the app is
+started up. This is huge information. Let's see what our first activity
+does. Click on its name value, and hit command + B to be taken to the
+SplashActivity implementation.
+
+Remember we are looking at this and imagining that there are no
+comments. Looking at this activity, it looks like it loads up, makes an
+Intent with MainActivity as an argument, and starts that Activity up. So
+let's see what happens in there. Click MainActivity and then command +
+B.
+
+We should now be in the MainActivity. Here we can see how the app
+navigates around and what is shown to the User. This app uses the
+navigation component, so we'll need to go to the nav graph to see what
+the first Fragment is. In other apps, you might see the Fragment loaded
+here directly, in others, all the logic may reside inside of Activities. 
+
+Following our app's logic, we can look at the nav graph and see that
+StartFragment is our first Fragment shown to the User.
+
+We now know how the app is configured based on our Application file,
+what the first Activity is, where that Activity leads, what that new
+Activity does, and finally, what the first screen is that the user will
+interact with is, and where it goes from there. That's a lot of
+information already, but we can do better.
+
+So let's look at the first Fragment, StartFragment. It's a simple
+Fragment that navigates between screens. Let's look at what happens when
+we navigate to the ListFragment.
+
+Open up ListFragment. We can see it is using a ViewModel and a
+RecyclerView. If we want to get a quick look at the RecyclerViewAdapter,
+select it in the code and hit command + B again. You'll be taken
+directly to the implementation. Back to the ListFragment. In it we see
+it is getting data from the ViewModel and passing it to the Adapter. But
+where is this data coming from? Select where we called
+employeeListLiveData and command + B again to be taken to the funtion
+inside the ViewModel.
+
+In the ViewModel, we see that the LiveData is emiting a value from a
+repository. Let's select that method and command + B again. We are then
+taken to a repository class that is making calls to our Room DB and
+making calls to our Remote DB using Retrofit.
+
+To learn more about the Room or Retrofit methods and values, we could
+select them and hit command + B to be taken to our DAO and Retrofit
+Interfaces.
+
+Now we know how and where our app gets its data from, on top of all of
+the things we had learned before, like how the app navigates from screen
+to screen. And those are the most important details of how any app
+works. Just follow the code from it's entry point in the manifest until
+you hit a dead end and can't go any further in the app, then back up and
+try again, going a different way until it dead ends. Keep doing this
+over and over until you've explored the whole app, or just the section
+you need to be working on and you'll be up to speed in no time.
 
 # Other
 
