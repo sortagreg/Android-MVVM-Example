@@ -1,4 +1,7 @@
 # Android App Architecture in The App Factory
+#### Authors
+- Marshall Ladd
+- 
 ### The MVVM Design Pattern
 
 #### Contents
