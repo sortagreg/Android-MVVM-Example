@@ -428,7 +428,7 @@ after lines, removing unused imports, and ensuring the guidelines above
 are being followed are taken care of for you by running a simple script.
 
 Installation and usage instructions can be found here:
-- [ktlint](#https://ktlint.github.io/)
+- [ktlint](https://ktlint.github.io/)
 
 # Other Tools
 
@@ -469,8 +469,8 @@ making Retrofit2 easier to use than ever.
 
 More info and documentation about Retrofit2 can be found at the
 following locations:
-- [Official site](#https://square.github.io/retrofit/)
-- [Tutorial with suspend functions](#https://proandroiddev.com/suspend-what-youre-doing-retrofit-has-now-coroutines-support-c65bd09ba067)
+- [Official site](https://square.github.io/retrofit/)
+- [Tutorial with suspend functions](https://proandroiddev.com/suspend-what-youre-doing-retrofit-has-now-coroutines-support-c65bd09ba067)
 
 ## Timber
 Timber is another library written by Jake Wharton, that makes writing
@@ -480,7 +480,7 @@ Warn level should be removed before being released to production. Timber
 does this for us.
 
 More information can be found here:
-- [Timber Tutorial](#https://medium.com/mindorks/better-logging-in-android-using-timber-72e40cc2293d)
+- [Timber Tutorial](https://medium.com/mindorks/better-logging-in-android-using-timber-72e40cc2293d)
 
 ## Material Components
 Material Components are a set of libraries that allow you to quickly and
@@ -500,8 +500,8 @@ that app into any other app, and you will have a new theme and look for
 your app.
 
 More information and that app can be found here:
-- [Build a Material Theme App](#https://material.io/resources/build-a-material-theme/#how-to-using-android-studio)
-- [Material tutorial](#https://medium.com/over-engineering/setting-up-a-material-components-theme-for-android-fbf7774da739)
+- [Build a Material Theme App](https://material.io/resources/build-a-material-theme/#how-to-using-android-studio)
+- [Material tutorial](https://medium.com/over-engineering/setting-up-a-material-components-theme-for-android-fbf7774da739)
 
 # Instructions
 
