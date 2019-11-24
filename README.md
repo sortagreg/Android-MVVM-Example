@@ -9,13 +9,13 @@
   - [How it Works](#how-it-works)
   - [Room Database](#room-database)
   - [Repositories](#repositories)
+- [Code Style Guide](#code-style-guide)
 - [Other Tools](#other-tools)
   - [Navigation](#navigation)
   - [Splash Screens](#splash-screens)
   - [Retrofit2](#retrofit2)
   - [Timber](#timber)
   - [Material Components](#material-components)
-  - [ktlint](#ktlint)
 - [Instructions](#instructions)
   - [Step By Step](#step-by-step)
   - [Submit Changes](#submit-changes)
@@ -157,10 +157,8 @@ to this Object, triggering a UI update.
 
 ```kotlin
 listViewModel.getAllEmployees().observe(this) { employeeList ->
-    employeeList?.let {
-        recyclerViewAdapter.submitList(it)
+        recyclerViewAdapter.submitList(employeeList)
         // other operations related to getting new data
-    }
 }
 ```
 
@@ -356,6 +354,68 @@ to be a starting point. Any improvements and further refinement to the
 design should be encouraged, however, deviations from the main design
 pattern should be kept to a minimum whenever possible.
 
+# Code Style Guide
+The following naming and style conventions should be used across all
+projects to aid in readability of code from one project to another.
+
+##### Variables
+- Standard variables shall be named using camelCaseNotation.
+- Hungarian notation(mVarName, sVarname, etc.) is **NOT** to be used.
+
+```kotlin
+// Do this
+val thisIsAVariable = "Some String value"
+// Don't do this
+val mThisIsAMemberVariable = 42
+```
+
+##### Constants
+- Constants shall be declared in all caps.
+
+```kotlin
+const val THIS_IS_A_URL_CONSTANT = "https:\\www.google.com"
+```
+
+##### Functions
+- Functions and their parameters will be named using camelCaseNotation.
+- If there is no return value, omit return value in signature.
+
+```kotlin
+// A function with no parameters or return value
+fun aBoringFunction() {
+    // Does stuff
+}
+// A function with parameters and a return type
+fun doSomeMath(inputA: Int, inputB: Int): Int {
+    return inputA + inputB
+}
+// This is wrong.
+fun NotInCamelCase(): Unit {
+    println("I return nothing and should not have Unit in my signature.")
+}
+```
+
+##### Classes
+- Classes shall be named in FirstLetterCapsCamelCase.
+- When possible, data classes should be used over standard classes.
+
+```kotlin
+data class ExampleDataClass(
+    val id: Int,
+    val exampleField: String
+)
+```
+
+##### ktlint
+ktlint is a linter and formatter for Kotlin code. What that means is
+that it will go through your code and look for formatting errors and fix
+them for you. Things like adding to many indents or spaces before or
+after lines, removing unused imports, and ensuring the guidelines above
+are being followed are taken care of for you by running a simple script.
+
+Installation and usage instructions can be found here:
+- [ktlint](#https://ktlint.github.io/)
+
 # Other Tools
 
 ## Navigation
@@ -384,15 +444,50 @@ place to execute logic to verify if a User is still logged in or not,
 and send them to the correct portion of the app, based on the result.
 
 ## Retrofit2
-// TODO Write this
+Retrofit2 is a library, written by Jake Wharton, for performing RESTful
+API requests on the background, simply and without having to write any
+real code. It accomplishes this through annotation processing. Think
+Room DAO interface methods, but for network requests. This is the
+industry standard way to do all of your RESTful API calls.
+
+A recent update added support for Kotlin coroutine suspend functions,
+making Retrofit2 easier to use than ever.
+
+More info and documentation about Retrofit2 can be found at the
+following locations:
+- [Official site](#https://square.github.io/retrofit/)
+- [Tutorial with suspend functions](#https://proandroiddev.com/suspend-what-youre-doing-retrofit-has-now-coroutines-support-c65bd09ba067)
 
 ## Timber
-// TODO Write this
+Timber is another library written by Jake Wharton, that makes writing
+log messages easier, and helps prevent them from making it into a
+production release. As a good practice, all log messages lower than the
+Warn level should be removed before being released to production. Timber
+does this for us.
+
+More information can be found here:
+- [Timber Tutorial](#https://medium.com/mindorks/better-logging-in-android-using-timber-72e40cc2293d)
 
 ## Material Components
+Material Components are a set of libraries that allow you to quickly and
+consistently theme your apps. You'll notice that in all the Layout XML
+files, size, color, font size, and attributes like that are never
+directly set. All of them rely on MaterialComponent styles and themes.
 
-## ktlint
-// TODO Write this
+This app has a very basic implementation of it, and is only using the
+color portion and part of the typography tools. There is a whole shape
+component as well.
+
+The Material design team has provided an app for you to run from Android
+Studio where you can customise various XML files to modify the apps
+theme. You can then run the app and see what all the components would
+look like using that theme. You can then copy/paste the theme files from
+that app into any other app, and you will have a new theme and look for
+your app.
+
+More information and that app can be found here:
+- [Build a Material Theme App](#https://material.io/resources/build-a-material-theme/#how-to-using-android-studio)
+- [Material tutorial](#https://medium.com/over-engineering/setting-up-a-material-components-theme-for-android-fbf7774da739)
 
 # Instructions
 
