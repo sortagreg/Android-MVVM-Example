@@ -219,6 +219,20 @@ marking it with some more annotations.
 abstract class ExampleRoomDB : RoomDatabase() {
 
     abstract fun getEmployeeDao(): EmployeeDAO
+    
+    companion object {
+        private var INSTANCE: ExampleRoomDB? = null
+
+        fun getDatabase(context: Context) = INSTANCE ?: kotlin.run {
+            Room.databaseBuilder(
+                context.applicationContext,
+                ExampleRoomDB::class.java,
+                ROOM_DB_NAME
+            )
+                .fallbackToDestructiveMigration()
+                .build()
+        }
+    }
 }
 ```
 
