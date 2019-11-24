@@ -24,6 +24,8 @@ android {
         }
     }
 
+    // The following two blocks are needed for some of the newer Kotlin features to work in Android.
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

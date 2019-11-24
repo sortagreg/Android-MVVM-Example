@@ -4,21 +4,25 @@
 #### Contents
 - [Introduction](#introduction)
   - [How to Use This Guide](#how-to-use-this-guide)
-- MVVM
+- [MVVM](#mvvm)
   - [What is MVVM?](#what-is-mvvm)
   - [How it Works](#how-it-works)
   - [Room Database](#room-database)
   - [Repositories](#repositories)
-- Other Tools
+- [Other Tools](#other-tools)
   - [Navigation](#navigation)
   - [Splash Screens](#splash-screens)
-- Instructions
+  - [Retrofit2](#retrofit2)
+  - [Timber](#timber)
+  - [Material Components](#material-components)
+  - [ktlint](#ktlint)
+- [Instructions](#instructions)
   - [Step By Step](#step-by-step)
   - [Submit Changes](#submit-changes)
-- Other
+- [Other](#other)
   - [Disclaimer](#disclaimer)
 
-## Introduction
+# Introduction
 This project is to provide a simple example app for Android Developers
 at The App Factory to reference when starting a new app, or adding new
 features to an existing app.
@@ -42,7 +46,7 @@ All Android apps in the App Factory will be written in Kotlin.
 
 ### Prerequisites
 This project assumes a base knowledge of Kotlin and Android, such as
-Activities, Fragments, and the Manifest.
+Activities, Fragments, RecyclerViews, and the Manifest.
 
 ## How to Use This Guide
 This README has a general summary of the design principles used in this
@@ -56,6 +60,8 @@ the order I implemented it.
 
 The Master branch will always have the latest full, approved, running,
 and commented code.
+
+# MVVM
 
 ## What is MVVM?
 MVVM is a flexible guide and set of libraries used to standardize an
@@ -350,6 +356,8 @@ to be a starting point. Any improvements and further refinement to the
 design should be encouraged, however, deviations from the main design
 pattern should be kept to a minimum whenever possible.
 
+# Other Tools
+
 ## Navigation
 This app uses the Navigation Component from Jetpack. More can be read
 about it from the [official documentation](https://developer.android.com/guide/navigation/navigation-getting-started) from Google, as well a
@@ -361,28 +369,49 @@ simple. This plugin, described in the tutorial and documentation should
 be used when possible.
 
 ## Splash Screens
-This app shows an example on how to properly implement a Splash Screen.
-This method is from an
+This app shows an example on how to properly implement a Splash(startup)
+Screen. A splash screen is a good practice as it gives the user
+something to look at while the app is loading, instead of a plain, white
+screen. This method is from an
 [article](https://www.bignerdranch.com/blog/splash-screens-the-right-way/)
 by BigNerdRanch. It is written in Java and from 2015, but still applies.
 The Java translates directly to Kotlin and the rest stays basically the
 same.
 
+###### Important Note
+If your app implements a login screen, the SplashActivity is an ideal
+place to execute logic to verify if a User is still logged in or not,
+and send them to the correct portion of the app, based on the result.
+
+## Retrofit2
+// TODO Write this
+
+## Timber
+// TODO Write this
+
+## Material Components
+
+## ktlint
+// TODO Write this
+
+# Instructions
+
 ## Step By Step 
 While an attempt was made to do everything in order, document
 everything, and get it all correct, there may be errors or things
 missing from this guide. If you find something, please refer to
-[Submit Changes](#submit-changes) for info on how you can submit a fix
-for it.
+[Submit Changes](#submit-changes) for info on how you can submit an
+update or fix for it.
 
 Each step in this guide has an associated branch in this repository.
 Checking out each branch will show you how the app would look after
-finishing the step, with additional comments in the code. 
+finishing the step. Large portions of the app may be refactored from
+step to step. Refer to the *master* branch for the final implementation.
 
 0. Create a new project in Android Studio.
    - Min API level 21 is the **absolute** minimum we should select here
    - API level 23 would be preferred
-   - Don't create a default activity
+   - Don't create a default Activity yet
 1. Dependencies and Activities
    - Add known dependencies and settings to gradle
      - In this instance, it is best to use the gradle from the Master as
@@ -393,7 +422,7 @@ finishing the step, with additional comments in the code.
    - Add Main Activity
      - Do generate XML/UI for this
      - Do not make this the Launcher Activity
-   - Implement [splash screen](#splash-screen)
+   - Implement [splash screen](#splash-screens)
 2. Fragments
    - Add Start, List, Search, and Detail Fragment
      - Start Fragment - select Fragment (blank) from menu
@@ -455,6 +484,8 @@ downloads and stores data, then displays that data. It also has offline
 backup and a very simple search function.
 
 ## Submit Changes
+
+# Other
 
 ## Disclaimer
 This app is meant to show architecture examples. It is **NOT** meant to

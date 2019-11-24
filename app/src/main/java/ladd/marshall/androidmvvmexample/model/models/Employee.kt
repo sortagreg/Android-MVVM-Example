@@ -30,7 +30,7 @@ data class Employee(
      * employee_name is mapped to the Kotlin variable employeeName.
      *
      * Notice we did not need this line for the id variable.  This is
-     * because name id in the Kotlin matches the JSON name exactly.
+     * because the variable 'id' in the Kotlin matches the JSON name exactly.
     */
     @SerializedName("employee_name")
     @Expose

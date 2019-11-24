@@ -10,8 +10,10 @@ import ladd.marshall.androidmvvmexample.viewModel.repositories.EmployeeRepositor
 
 class ListViewModel(application: Application) : AndroidViewModel(application) {
 
+    // coordinates between the local and remote databases
     private val employeeRepository = EmployeeRepository.getInstance(application)
 
+    // This LiveData is created using a ktx library shortcut
     val employeeListLiveData: LiveData<List<Employee>> = liveData(Dispatchers.IO) {
         emitSource(employeeRepository.getAllEmployeesLiveData())
     }

@@ -6,8 +6,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetroFitInstance {
 
-    fun getInstance(): Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private var INSTANCE: Retrofit? = null
+
+    fun getInstance(): Retrofit = INSTANCE ?: kotlin.run {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 }

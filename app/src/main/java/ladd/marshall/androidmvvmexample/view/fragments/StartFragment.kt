@@ -7,6 +7,10 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.start_fragment.*
 import ladd.marshall.androidmvvmexample.R
 
+/**
+ * This is the first Fragment that is loaded by the NavController.  It implements a simple
+ * navigation using the Navigation component.
+ */
 class StartFragment : Fragment(R.layout.start_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

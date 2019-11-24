@@ -10,6 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import ladd.marshall.androidmvvmexample.R
 import ladd.marshall.androidmvvmexample.model.models.Employee
 
+/**
+ * Uses a ListAdapter<DataClass, ViewHolder> instead of a standard RecyclerViewAdapter. This class
+ * offers built in animations when updating a data set, like in a LiveData Observer.
+ *
+ * More info here:
+ * https://medium.com/@trionkidnapper/recyclerview-more-animations-with-less-code-using-support-library-listadapter-62e65126acdb
+ */
 class EmployeeRecyclerViewAdapter(private val onClickListener: (Employee) -> Unit) :
     ListAdapter<Employee, EmployeeViewHolder>(EmployeeDiffCallback()) {
 

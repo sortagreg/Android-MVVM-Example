@@ -7,6 +7,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import ladd.marshall.androidmvvmexample.R
 
+/**
+ * The Activity that is loaded immediately after the splash screen.
+ *
+ * It is responsible for coordinating the Navigation Component. A link is provided in the README
+ * to explain how this component works and is built. Please refer to that for an explanation of
+ * how to implement this.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
