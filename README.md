@@ -430,6 +430,17 @@ are being followed are taken care of for you by running a simple script.
 Installation and usage instructions can be found here:
 - [ktlint](https://ktlint.github.io/)
 
+##### View id's
+- View id's shall be named using camelCaseNotation
+- id's shall be formatted viewTypeThenFunction
+
+```xml
+<TextView
+    android:id="@+id/textViewUserName" />
+<Button
+    android:id="@+id/buttonSubmitForm" />
+```
+
 # Other Tools
 
 ## Navigation
